@@ -1,0 +1,68 @@
+.kanban-col {
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* permite que el body haga scroll dentro del alto del tablero */
+  height: 100%;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Header: color de fondo suave según estado */
+.kanban-col__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.kanban-col__nombre {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.kanban-col__count {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 22px;
+  text-align: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--card);
+}
+
+/* Cuerpo desplazable: la columna no crece infinito */
+.kanban-col__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+
+.kanban-col__vacio {
+  padding: 8px 4px;
+}
+
+/* Colores suaves por estado (gris / ámbar / verde) */
+.kanban-col--nuevo .kanban-col__header {
+  background: #ece8df;
+  color: var(--ink-soft);
+}
+
+.kanban-col--interesado .kanban-col__header {
+  background: var(--low-bg);
+  color: var(--low);
+}
+
+.kanban-col--cliente .kanban-col__header {
+  background: var(--ok-bg);
+  color: var(--ok);
+}

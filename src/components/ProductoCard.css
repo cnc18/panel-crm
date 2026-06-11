@@ -1,0 +1,63 @@
+.producto {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.producto__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.producto__nombre {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.producto__precio {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.producto__unidades {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.producto__num {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.producto__sindato {
+  flex-shrink: 0;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.producto__acciones {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.producto__acciones .btn {
+  flex: 1;
+}
+
+/* Afordancia de peligro para Eliminar (reusa Button ghost) */
+.producto__acciones .danger:hover:not(:disabled) {
+  color: var(--out);
+  border-color: var(--out);
+}

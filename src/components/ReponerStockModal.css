@@ -1,0 +1,19 @@
+/* Modal más estrecho que el de crear/editar */
+.modal--sm {
+  max-width: 340px;
+}
+
+.reponer__resumen {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.reponer__resumen strong {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}

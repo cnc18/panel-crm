@@ -1,0 +1,235 @@
+.receta-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.receta-editor__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.receta-editor__nombre {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.receta-editor__precio {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+/* Badge de disponibilidad */
+.receta-editor__disp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--ok-bg);
+  color: var(--ok);
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.receta-editor__disp strong {
+  font-weight: 700;
+}
+
+.receta-editor__disp--neutro {
+  background: var(--paper);
+  color: var(--ink-soft);
+}
+
+/* Tabla de insumos */
+.receta-tabla-wrap {
+  overflow-x: auto;
+}
+
+.receta-tabla {
+  width: 100%;
+  min-width: 460px; /* fuerza scroll horizontal en móvil en lugar de aplastar */
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.receta-tabla th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 0 10px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.receta-tabla td {
+  padding: 10px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  vertical-align: middle;
+}
+
+.receta-tabla__vacia {
+  text-align: center;
+  padding: 24px 10px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--accent-soft);
+}
+
+.receta-tabla__input {
+  width: 96px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  text-align: right;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Sin flechas del input number, UI más limpia */
+.receta-tabla__input::-webkit-outer-spin-button,
+.receta-tabla__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.receta-tabla__input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.receta-tabla__input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(107, 79, 58, 0.12);
+}
+
+.receta-tabla__input:disabled {
+  opacity: 0.6;
+}
+
+.receta-tabla__unidad {
+  color: var(--ink-soft);
+}
+
+.receta-tabla__disp {
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.receta-tabla__quitar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.receta-tabla__quitar:hover {
+  background: var(--out-bg);
+  color: var(--out);
+}
+
+/* Fila de agregar */
+.receta-agregar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.receta-agregar__select,
+.receta-agregar__cant {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 9px 10px;
+}
+
+.receta-agregar__select {
+  flex: 1;
+  min-width: 160px;
+}
+
+.receta-agregar__cant {
+  width: 120px;
+  text-align: right;
+}
+
+.receta-agregar__cant::-webkit-outer-spin-button,
+.receta-agregar__cant::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.receta-agregar__cant[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.receta-agregar__select:focus,
+.receta-agregar__cant:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(107, 79, 58, 0.12);
+}
+
+/* Aviso cuando no hay materias por agregar */
+.receta-agregar__aviso {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--accent-soft);
+}
+
+.receta-editor__error {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--out);
+}
+
+.receta-editor__acciones {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+/* Móvil: cabecera y fila de agregar apiladas */
+@media (max-width: 520px) {
+  .receta-editor__head {
+    flex-wrap: wrap;
+  }
+
+  .receta-agregar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .receta-agregar__select,
+  .receta-agregar__cant {
+    width: 100%;
+  }
+
+  .receta-agregar .btn {
+    width: 100%;
+  }
+}

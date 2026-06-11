@@ -1,0 +1,37 @@
+/* Textarea: misma piel que field__input, con alto mínimo y resize vertical */
+.field__textarea {
+  min-height: 76px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Fechas en dos columnas (se apilan en móvil) */
+.oferta__fechas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Checkbox "Oferta activa" en línea */
+.field--check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.field--check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .oferta__fechas {
+    grid-template-columns: 1fr;
+  }
+}

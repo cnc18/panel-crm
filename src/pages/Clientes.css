@@ -1,0 +1,124 @@
+.clientes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Barra superior: buscador + contador */
+.clientes__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.clientes__buscador {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 240px;
+  max-width: 420px;
+}
+
+.clientes__buscador svg {
+  position: absolute;
+  left: 12px;
+  color: var(--accent-soft);
+  pointer-events: none;
+}
+
+.clientes__buscador input {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px 10px 38px;
+  transition: border-color 0.15s ease;
+}
+
+.clientes__buscador input::placeholder {
+  color: var(--accent-soft);
+}
+
+.clientes__buscador input:focus {
+  border-color: var(--accent);
+}
+
+.clientes__count {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+/* Tablero de dos zonas: kanban (70%) + detalle (30%), con altura acotada
+   para que las columnas tengan su propio scroll. */
+.clientes__board {
+  display: grid;
+  grid-template-columns: 7fr 3fr;
+  gap: 20px;
+  height: calc(100vh - 210px);
+  min-height: 420px;
+}
+
+/* Izquierda: tres columnas en fila */
+.clientes__kanban {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  min-height: 0;
+}
+
+/* Derecha: panel de detalle, scroll propio si es largo */
+.clientes__panel {
+  min-height: 0;
+  overflow-y: auto;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+/* Mensaje cuando no hay lead seleccionado */
+.clientes__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 100%;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.clientes__placeholder svg {
+  color: var(--accent-soft);
+}
+
+/* Móvil/tablet: se apila y la altura pasa a automática */
+@media (max-width: 900px) {
+  .clientes__board {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+  }
+
+  .clientes__kanban {
+    grid-template-columns: 1fr;
+  }
+
+  /* Sin altura fija, cada columna usa un tope propio para no crecer infinito */
+  .clientes__kanban .kanban-col {
+    height: auto;
+    max-height: 70vh;
+  }
+
+  .clientes__panel {
+    max-height: none;
+  }
+}

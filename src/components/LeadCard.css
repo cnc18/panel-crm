@@ -1,0 +1,123 @@
+.lead {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent-soft);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.lead:hover {
+  box-shadow: 0 2px 4px rgba(26, 23, 20, 0.05), 0 8px 18px rgba(26, 23, 20, 0.08);
+}
+
+/* Seleccionado: realce con acento */
+.lead.seleccionado {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+/* Borde izquierdo por estado (gris / ámbar / verde) */
+.lead--nuevo {
+  border-left-color: #b3aa98;
+}
+
+.lead--interesado {
+  border-left-color: var(--low);
+}
+
+.lead--cliente {
+  border-left-color: var(--ok);
+}
+
+/* El realce de selección no debe pisar el color del borde izquierdo */
+.lead.seleccionado.lead--nuevo,
+.lead.seleccionado.lead--interesado,
+.lead.seleccionado.lead--cliente {
+  border-left-width: 3px;
+}
+
+.lead__top {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lead__nombre {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.lead__tel {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.lead__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.lead__canal {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+  text-transform: capitalize;
+}
+
+.lead__canal svg {
+  color: var(--accent-soft);
+}
+
+.lead__fecha {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* Botones avanzar / retroceder */
+.lead__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.lead__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.lead__arrow:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.lead__arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

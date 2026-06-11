@@ -1,0 +1,81 @@
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(26, 23, 20, 0.35);
+  backdrop-filter: blur(4px);
+  animation: overlay-in 0.15s ease;
+}
+
+.confirm {
+  width: 100%;
+  max-width: 400px;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 40px rgba(26, 23, 20, 0.2);
+  animation: modal-in 0.18s ease;
+}
+
+.confirm__titulo {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+
+.confirm__mensaje {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+.confirm__error {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--out);
+  margin-bottom: 14px;
+}
+
+.confirm__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Botón de confirmación peligrosa (rojo sólido) */
+.confirm__acciones .danger-solid {
+  background: var(--out);
+}
+
+.confirm__acciones .danger-solid:hover:not(:disabled) {
+  background: #7e332e;
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .confirm-overlay,
+  .confirm {
+    animation: none;
+  }
+}

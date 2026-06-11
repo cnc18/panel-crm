@@ -1,0 +1,7 @@
+.panel__title {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--ink);
+}

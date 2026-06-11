@@ -1,0 +1,119 @@
+.ofertas {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.ofertas__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ofertas__titulo {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.ofertas__titulo h1 {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ofertas__count {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* Secciones Activas / Inactivas */
+.ofertas__seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ofertas__seccion-titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Header colapsable de "Inactivas" */
+.ofertas__seccion-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.ofertas__chevron {
+  color: var(--ink-soft);
+  transition: transform 0.18s ease;
+}
+
+.ofertas__chevron.abierto {
+  transform: rotate(180deg);
+}
+
+.ofertas__seccion-n {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 1px 9px;
+}
+
+/* Cuadrícula */
+.ofertas__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* Estado vacío total */
+.ofertas__vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+/* Móvil: cabecera apilada, botón ancho y una sola columna */
+@media (max-width: 560px) {
+  .ofertas__head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ofertas__head .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ofertas__grid {
+    grid-template-columns: 1fr;
+  }
+}

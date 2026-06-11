@@ -1,0 +1,53 @@
+.receta-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.receta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  text-align: left;
+  padding: 10px 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.receta-item:hover {
+  background: var(--paper);
+}
+
+.receta-item__nombre {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.receta-item__sub {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* Seleccionado: resaltado oscuro */
+.receta-item.activo,
+.receta-item.activo:hover {
+  background: var(--ink);
+}
+
+.receta-item.activo .receta-item__nombre {
+  color: var(--paper);
+}
+
+.receta-item.activo .receta-item__sub {
+  color: rgba(246, 243, 236, 0.65);
+}

@@ -1,0 +1,137 @@
+.inventario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inventario__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.inventario__titulo {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.inventario__titulo h1 {
+  font-family: var(--font-serif);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.inventario__count {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* Buscador */
+.inventario__buscador {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inventario__buscador svg {
+  position: absolute;
+  left: 12px;
+  color: var(--accent-soft);
+  pointer-events: none;
+}
+
+.inventario__buscador input {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px 10px 38px;
+  transition: border-color 0.15s ease;
+}
+
+.inventario__buscador input::placeholder {
+  color: var(--accent-soft);
+}
+
+.inventario__buscador input:focus {
+  border-color: var(--accent);
+}
+
+/* Tabs de filtro por tipo */
+.inventario__filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.inventario__tab {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.inventario__tab:hover {
+  border-color: var(--accent-soft);
+  color: var(--ink);
+}
+
+.inventario__tab.activo {
+  color: var(--card);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Cuadrícula */
+.inventario__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* Estado vacío */
+.inventario__vacio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+/* Móvil: cabecera apilada, botón ancho y una sola columna */
+@media (max-width: 560px) {
+  .inventario__head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .inventario__head .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .inventario__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inventario__filtros {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+}

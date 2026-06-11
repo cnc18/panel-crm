@@ -1,0 +1,59 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.app__main {
+  flex: 1;
+  min-width: 0;
+  padding: 32px 40px;
+}
+
+.page-head {
+  margin-bottom: 16px;
+}
+
+.page-head h1 {
+  font-size: 30px;
+}
+
+.placeholder {
+  color: var(--ink-soft);
+}
+
+/* Prueba de conexión a la API (temporal) */
+.api-raw {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.api-error {
+  color: var(--out);
+  background: var(--out-bg);
+  border: 1px solid var(--out);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+.api-error code {
+  font-family: ui-monospace, Consolas, monospace;
+}
+
+/* Móvil: la sidebar pasa arriba como barra horizontal */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .app__main {
+    padding: 24px 20px;
+  }
+}

@@ -1,0 +1,80 @@
+.materia {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.materia__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.materia__nombre {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+/* El estado no se parte en dos líneas */
+.materia__estado {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* El tipo es un tag claro en mayúsculas, distinto del pill de estado */
+.materia__tipo {
+  align-self: flex-start;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+}
+
+.materia__stock {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.materia__num {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.materia__acciones {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.materia__acciones .btn {
+  flex: 1;
+}
+
+/* Afordancia de peligro para Eliminar (reusa Button ghost) */
+.materia__acciones .danger:hover:not(:disabled) {
+  color: var(--out);
+  border-color: var(--out);
+}
+
+/* Badges por tipo de materia: tres tintes claros y distintos, con tokens
+   propios para no confundirse con los colores de estado (OK/Bajo/Agotado). */
+.badge--esencia {
+  color: var(--tipo-esencia);
+  background: var(--tipo-esencia-bg);
+}
+
+.badge--alcohol {
+  color: var(--tipo-alcohol);
+  background: var(--tipo-alcohol-bg);
+}
+
+.badge--frasco {
+  color: var(--tipo-frasco);
+  background: var(--tipo-frasco-bg);
+}

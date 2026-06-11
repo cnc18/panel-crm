@@ -1,0 +1,105 @@
+/* Sistema de diseño "atelier" — tokens, fuentes y estilos base */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Paleta */
+  --ink: #1a1714;
+  --ink-soft: #4a443d;
+  --paper: #f6f3ec;
+  --card: #fffdf8;
+  --line: #e3dccd;
+  --accent: #6b4f3a;
+  --accent-soft: #a8895f;
+  --gold: #b08d4f;
+
+  /* Estados (texto / fondo) */
+  --ok: #3f6f4f;
+  --ok-bg: #e6efe7;
+  --low: #9a5b2c;
+  --low-bg: #f5e8db;
+  --out: #97403a;
+  --out-bg: #f3e1df;
+
+  /* Tipos de materia prima (texto / fondo) — tintes claros y distintos entre sí */
+  --tipo-esencia: #7a5278;
+  --tipo-esencia-bg: #efe6f1;
+  --tipo-alcohol: #9a6a2c;
+  --tipo-alcohol-bg: #f5ecd9;
+  --tipo-frasco: #2f6e66;
+  --tipo-frasco-bg: #e2efed;
+
+  /* Tipografía */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Formas */
+  --radius: 12px;
+  --radius-sm: 10px;
+  --radius-lg: 14px;
+  --shadow: 0 1px 2px rgba(26, 23, 20, 0.04), 0 4px 12px rgba(26, 23, 20, 0.06);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+/* Base */
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* Accesibilidad: foco visible */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Mensaje de estado vacío (compartido) */
+.empty {
+  color: var(--ink-soft);
+  font-size: 14px;
+}
