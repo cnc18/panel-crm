@@ -47,7 +47,6 @@ async function request(path, { method = 'GET', body } = {}) {
 
 /* ── CLIENTES ───────────────────────────────────────────── */
 
-// ⚠ El CRM aún NO expone un listado de clientes (ver README). Falta crear `GET /clientes`.
 export function getClientes() {
   return request('/clientes')
 }
@@ -68,10 +67,38 @@ export function actualizarCliente(telefono, datos) {
 
 /* ── PEDIDOS ────────────────────────────────────────────── */
 
-// Lista todos los pedidos. Filtro opcional por estado (?estado=confirmado).
-export function getPedidos(estado) {
+// Lista pedidos. El backend SOLO filtra por estado (?estado=confirmado);
+// filtros de fecha/cliente no existen server-side -> se aplican en el frontend.
+export function getPedidos(filtros = {}) {
+  const { estado } = filtros
   const query = estado ? `?estado=${encodeURIComponent(estado)}` : ''
   return request(`/pedidos${query}`)
+}
+
+// Un pedido con sus items (404 si no existe).
+export function getPedido(id) {
+  return request(`/pedidos/${id}`)
+}
+
+// Crea un pedido. items: [{producto_id, cantidad}]. El backend congela el
+// precio actual de cada producto y calcula el total; no se envían aquí.
+export function crearPedido({ cliente_id, items }) {
+  return request('/pedidos', { method: 'POST', body: { cliente_id, items } })
+}
+
+// Edita los items de un pedido. items: [{producto_id, cantidad}]. El backend
+// recalcula el total con el precio ACTUAL y reajusta inventario si el pedido ya
+// tenía stock descontado. El error propaga con err.status: 409 stock insuficiente
+// (detalle de la materia en el mensaje), 400 pedido cancelado -> la UI los
+// distingue por ese código.
+export function editarPedido(id, { items }) {
+  return request(`/pedidos/${id}`, { method: 'PUT', body: { items } })
+}
+
+// Cambia solo el estado. El error propaga con err.status: 400 transición
+// inválida, 409 stock insuficiente -> la UI los distingue por ese código.
+export function cambiarEstadoPedido(id, nuevo_estado) {
+  return request(`/pedidos/${id}/estado`, { method: 'PATCH', body: { nuevo_estado } })
 }
 
 // Pedidos de un cliente. El endpoint no filtra por teléfono y los pedidos
@@ -81,6 +108,25 @@ export async function getPedidosCliente(telefono) {
   const cliente = await getCliente(telefono)
   const pedidos = await getPedidos()
   return (pedidos || []).filter((p) => p.cliente_id === cliente.id)
+}
+
+// Los pedidos solo traen cliente_id/producto_id. Estos mapas resuelven nombres
+// para las vistas: se cargan UNA vez al entrar a Pedidos y se pasan como prop.
+
+// { [cliente_id]: { nombre, telefono } } para lookup rápido por id.
+export async function getMapaClientes() {
+  const clientes = await getClientes()
+  return Object.fromEntries(
+    (clientes || []).map((c) => [c.id, { nombre: c.nombre, telefono: c.telefono }])
+  )
+}
+
+// { [producto_id]: { nombre, precio } } para lookup rápido por id.
+export async function getMapaProductos() {
+  const productos = await getProductos()
+  return Object.fromEntries(
+    (productos || []).map((p) => [p.id, { nombre: p.nombre, precio: p.precio }])
+  )
 }
 
 /* ── PRODUCTOS ──────────────────────────────────────────── */

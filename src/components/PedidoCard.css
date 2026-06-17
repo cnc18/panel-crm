@@ -1,0 +1,97 @@
+.pedido {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent-soft);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.pedido:hover {
+  box-shadow: 0 2px 4px rgba(26, 23, 20, 0.05), 0 8px 18px rgba(26, 23, 20, 0.08);
+}
+
+/* Borde izquierdo por estado */
+.pedido--pendiente {
+  border-left-color: #b3aa98; /* gris */
+}
+.pedido--confirmado {
+  border-left-color: var(--tipo-frasco); /* azul/verdoso, distinto del ámbar */
+}
+.pedido--en_produccion {
+  border-left-color: var(--low); /* ámbar */
+}
+.pedido--entregado {
+  border-left-color: var(--ok); /* verde */
+}
+/* Cancelado: rojo apagado y toda la tarjeta atenuada */
+.pedido--cancelado {
+  border-left-color: var(--out);
+  opacity: 0.6;
+}
+
+.pedido__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pedido__cliente {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.pedido__descontado {
+  flex-shrink: 0;
+}
+
+.pedido__items {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+.pedido__meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pedido__total {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pedido__fecha {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* Botones de transición de estado */
+.pedido__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pedido__btn {
+  flex: 1 1 auto;
+  font-size: 12px;
+  padding: 6px 10px;
+}

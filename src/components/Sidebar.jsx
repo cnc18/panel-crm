@@ -1,10 +1,11 @@
-import { LayoutDashboard, Users, Package, Boxes, FlaskConical, Tag } from 'lucide-react'
+import { LayoutDashboard, Users, Receipt, Package, Boxes, FlaskConical, Tag } from 'lucide-react'
 import './Sidebar.css'
 
 // Secciones del panel.
 const NAV = [
   { id: 'dashboard', label: 'Dashboard', Icon: LayoutDashboard },
   { id: 'clientes', label: 'Clientes', Icon: Users },
+  { id: 'pedidos', label: 'Pedidos', Icon: Receipt },
   { id: 'productos', label: 'Productos', Icon: Package },
   { id: 'inventario', label: 'Inventario', Icon: Boxes },
   { id: 'recetas', label: 'Recetas', Icon: FlaskConical },

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Sidebar from './components/Sidebar'
 import Dashboard from './pages/Dashboard'
 import Clientes from './pages/Clientes'
+import Pedidos from './pages/Pedidos'
 import Productos from './pages/Productos'
 import Inventario from './pages/Inventario'
 import Recetas from './pages/Recetas'
@@ -12,6 +13,7 @@ import './App.css'
 const SECTIONS = {
   dashboard: 'Dashboard',
   clientes: 'Clientes',
+  pedidos: 'Pedidos',
   productos: 'Productos',
   inventario: 'Inventario',
   recetas: 'Recetas',
@@ -31,6 +33,8 @@ function App() {
           <Dashboard />
         ) : section === 'clientes' ? (
           <Clientes />
+        ) : section === 'pedidos' ? (
+          <Pedidos />
         ) : section === 'productos' ? (
           <Productos />
         ) : section === 'inventario' ? (

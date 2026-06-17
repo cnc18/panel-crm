@@ -1,0 +1,125 @@
+.kanban-pedidos-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  height: 100%;
+}
+
+/* Tablero: columnas en fila con scroll horizontal si no caben. */
+.kanban-pedidos {
+  display: flex;
+  gap: 14px;
+  min-height: 0;
+  flex: 1;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.kpcol {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1 1 0;
+  min-width: 240px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* La columna de cancelados (terminal) ocupa menos espacio. */
+.kpcol--colapsable {
+  flex: 0 0 auto;
+  min-width: 200px;
+  align-self: flex-start;
+}
+
+.kpcol__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.kpcol__nombre {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.kpcol__toggle {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+.kpcol__count {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 22px;
+  text-align: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--card);
+}
+
+.kpcol__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+
+.kpcol__vacio {
+  padding: 8px 4px;
+}
+
+/* Colores suaves por estado en el header */
+.kpcol--pendiente .kpcol__header {
+  background: #ece8df;
+  color: var(--ink-soft);
+}
+.kpcol--confirmado .kpcol__header {
+  background: var(--tipo-frasco-bg);
+  color: var(--tipo-frasco);
+}
+.kpcol--en_produccion .kpcol__header {
+  background: var(--low-bg);
+  color: var(--low);
+}
+.kpcol--entregado .kpcol__header {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+.kpcol--cancelado .kpcol__header {
+  background: var(--out-bg);
+  color: var(--out);
+}
+
+/* Toast de notificación (error de transición / stock) */
+.kp-toast {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+}
+.kp-toast--error {
+  color: var(--out);
+  background: var(--out-bg);
+  border: 1px solid var(--out);
+}

@@ -1,0 +1,193 @@
+/* Modal de pedido: un poco más ancho para la lista de items. */
+.pedido-modal {
+  max-width: 560px;
+}
+
+/* Texto de ayuda bajo un campo (no es error). */
+.field__hint {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* Cliente (no editable) + chip de estado */
+.pedido-modal__cliente {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pedido-modal__estado {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: var(--line);
+  color: var(--ink-soft);
+}
+.pedido-modal__estado--confirmado {
+  background: var(--tipo-frasco-bg);
+  color: var(--tipo-frasco);
+}
+.pedido-modal__estado--en_produccion {
+  background: var(--low-bg);
+  color: var(--low);
+}
+.pedido-modal__estado--entregado {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+.pedido-modal__estado--cancelado {
+  background: var(--out-bg);
+  color: var(--out);
+}
+
+/* Avisos (stock descontado / bloqueo por cancelado) */
+.pedido-modal__aviso {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--low);
+  background: var(--low-bg);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+.pedido-modal__aviso--bloqueo {
+  color: var(--out);
+  background: var(--out-bg);
+}
+
+/* Lista de items */
+.pedido-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pedido-item {
+  display: grid;
+  grid-template-columns: 1fr 72px auto 28px;
+  align-items: center;
+  gap: 8px;
+}
+
+.pedido-item__nombre {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.pedido-item__cant {
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.pedido-item__cant-ro {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--ink-soft);
+  text-align: center;
+}
+
+.pedido-item__precio {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.pedido-item__quitar {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--ink-soft);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.pedido-item__quitar:hover {
+  border-color: var(--out);
+  color: var(--out);
+}
+
+.pedido-modal__vacio {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* Fila para agregar producto */
+.pedido-modal__agregar {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+.pedido-modal__agregar .field__input {
+  flex: 1;
+}
+
+/* Totales */
+.pedido-modal__totales {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.pedido-modal__total-fila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.pedido-modal__total-val {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.pedido-modal__total-val--est {
+  color: var(--accent);
+}
+
+/* Cambiar estado */
+.pedido-modal__estado-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+.pedido-modal__estado-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 480px) {
+  .pedido-item {
+    grid-template-columns: 1fr 60px auto 26px;
+  }
+}
