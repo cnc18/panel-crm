@@ -1,16 +1,23 @@
-# React + Vite
+# panel-crm
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Panel de administración web para un CRM de perfumería, construido en **React + Vite**. Es el frontend que consume la API de **crm-core** (https://github.com/cnc18/crm-core): gestiona clientes, conversaciones, pedidos e inventario.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Tablero de pedidos tipo Kanban, tabla de clientes con edición en línea, modales de detalle y cálculo de ventas totales. Todo el contacto con el backend pasa por una única capa de API con manejo de errores uniforme.
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React · Vite · JavaScript · CSS
 
-## Expanding the ESLint configuration
+## Estructura
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**src/api/** — única capa de contacto con la API del CRM (FastAPI)
+
+**src/components/** — componentes reutilizables: tablas, modales, Kanban
+
+**src/pages/** — vistas de la aplicación
+
+## Puesta en marcha
+
+Requiere Node.js. Instalar dependencias con npm install y levantar el entorno de desarrollo con npm run dev. La URL del backend se configura en src/api/crm.js (por defecto http://localhost:8000).
